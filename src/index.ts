@@ -14,7 +14,9 @@ export const add = (array: number[]): number | string | Error => {
     throw new Error();
   }
 
-  const result = array.reduce((acc, cur) => acc + cur);
+  const result = array.reduce((acc, cur) => {
+    return acc + cur;
+  }, 0);
 
   if (result > 1000) {
     return 'too big';
