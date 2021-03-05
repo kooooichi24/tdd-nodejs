@@ -1,24 +1,24 @@
-console.log('Try npm run lint/fix!');
+/**
+ * 足し算メソッド。
+ *
+ * ただし下記条件を含む。
+ * - 引数が数値のみの場合、加算結果を返す。
+ * - 引数に文字列が含まれている場合、例外を返す。
+ * - 引数の要素数が 31 個以上の場合、例外を返す。
+ * - 加算結果が 1000 を超える場合、文字列「too big」を返す。
+ *
+ * @param array 数値配列
+ */
+export const add = (array: number[]): number | string | Error => {
+  if (array.length > 30) {
+    throw new Error();
+  }
 
-// const longString =
-//   'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ut aliquet diam.';
+  const result = array.reduce((acc, cur) => acc + cur);
 
-// const trailing = 'Semicolon';
-
-// const why = 'am I tabbed?';
-
-// export function doSomeStuff(
-//   withThis: string,
-//   andThat: string,
-//   andThose: string[]
-// ) {
-//   //function on one line
-//   if (!andThose.length) {
-//     return false;
-//   }
-//   console.log(withThis);
-//   console.log(andThat);
-//   console.dir(andThose);
-//   return;
-// }
-// // TODO: more examples
+  if (result > 1000) {
+    return 'too big';
+  } else {
+    return result;
+  }
+};
